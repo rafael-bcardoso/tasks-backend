@@ -36,7 +36,7 @@ public class TaskControllerTest {
 			taskController.save(todo);
 			Assert.fail("Não deveria chegar neste ponto");
 		} catch (ValidationException e) {
-			Assert.assertEquals("Fill the task description 01", e.getMessage());
+			Assert.assertEquals("Fill the task description", e.getMessage());
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class TaskControllerTest {
 			taskController.save(todo);
 			Assert.fail("Não deveria chegar neste ponto");
 		} catch (ValidationException e) {
-			Assert.assertEquals("Fill the due date 02", e.getMessage());
+			Assert.assertEquals("Fill the due date", e.getMessage());
 		}
 	}
 	
@@ -63,7 +63,7 @@ public class TaskControllerTest {
 			taskController.save(todo);
 			Assert.fail("Não deveria chegar neste ponto");
 		} catch (ValidationException e) {
-			Assert.assertEquals("Due date must not be in past 03", e.getMessage());
+			Assert.assertEquals("Due date must not be in past", e.getMessage());
 		}
 	}
 	
