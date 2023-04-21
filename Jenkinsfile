@@ -1,8 +1,8 @@
 pipeline {
     agent any
     stages {
-        stage {
-            step() {
+        stage ('Start') {
+            steps {
                 bat 'echo tasks-backend'
             }
         }
