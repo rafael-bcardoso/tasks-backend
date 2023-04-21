@@ -40,7 +40,15 @@ pipeline {
                     git credentialsId: 'GitHub', url: 'https://github.com/rafael-bcardoso/tasks-api-test'
                     bat 'mvn test'
                 }
-              
+            }
+        }
+        stage ('Deploy Frontend') {
+            steps {
+                dir('deploy-frontend') {
+                    git credentialsId: 'GitHub', url: 'https://github.com/rafael-bcardoso/tasks-frontend'
+                    bat 'clean package'
+                    deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
+                }
             }
         }
     }
